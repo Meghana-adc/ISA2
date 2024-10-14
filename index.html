@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navigation Bar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+</head>
+<style>
+        body {
+            margin: 0; 
+            padding: 0; 
+            background-image: url('https://raw.githubusercontent.com/Meghana-adc/Assignment-/refs/heads/main/bg.jpg');
+            background-size: auto; 
+            background-position: top left; 
+            background-repeat: repeat; 
+        }
+
+        hr.section-divider {
+            width: 80%; /* Line width is 80% of the container */
+            border: none; /* Remove default border */
+            border-top: 1px solid #6868EC; /* Line thickness and color */
+            margin: 20px auto; /* Center the line */
+        }
+
+        .heading-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+            margin-bottom: 20px;
+        }
+
+        .heading-container p {
+            color: #1E1B1B;
+            font-size: 40px;
+            font-family: Comfortaa;
+        }
+
+        .heading-container input[type="button"] {
+            background-color: white;
+            color: #6868EC;
+            padding: 10px 20px;
+            border: 1px solid #6868EC;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .heading-container input[type="button"]:hover {
+            background-color: #cfcff0;
+        }
+
+/* Buttons */
+input[type="button"] {
+    background-color: white;
+    color: #6868EC;
+    padding: 10px 20px;
+    border: 1px solid #6868EC; /* Changed border property */
+    border-radius: 25px; /* Set rounded corners */
+    font-family: 'Montserrat', sans-serif; /* Set font family */
+    font-size: 24px; /* Set font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="button"]:hover {
+    background-color: #cfcff0;
+}
+
+nav {
+    padding: 5%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 5%;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav ul li {
+    font-family: Comfortaa;
+    font-weight: medium;
+    font-size: 24px;
+    margin-right: 2%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #3C4244;
+    padding: 10px;
+}
+
+nav ul li.active a {
+  color: #6868EC;
+}
+
+nav ul li a:hover {
+    color: #999999;
+}
+
+#leftbox {
+  float: left;
+  width: 30%;
+  height: 280px;
+  font-family: Comfortaa;
+  font-weight: light;
+  font-size: 60px;
+  margin-left: 10%;
+  margin-bottom: 10%;
+}
+
+
+#rightbox {
+  float: right;
+  width: 40%;
+  height: 280px;
+  font-family: Comfortaa;
+  font-weight: light;
+  font-size: 32px;
+  margin-top: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
+}
+
+/* CSS Grid for Images */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-fit to fill the entire width */
+  gap: 15px;
+  padding: 10px;
+  width: 100%; /* Make sure the grid fills the entire width */
+  margin: 10px auto; /* Center the grid */
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;}
+
+    .grid-item img:hover {
+      transform: scale(1.05);
+    }
+
+
+/* Text Grid Container */
+.text-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+            gap: 15px;
+            width: 100%; /* Ensure grid fills the entire width */
+            margin: 0 auto; /* Center the grid */
+            padding: 20px;
+        }
+
+        .text-grid-item {
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px;
+            transition: transform 0.2s ease-in-out;
+            text-align: center;
+            font-family: Comfortaa;
+            font-weight: light;
+            color: 4A4A5D;
+            margin-bottom: 10%;
+        }
+
+.cards-container {
+            margin: 5vh;
+            padding: 5vh;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 90vw;
+        }
+
+
+    .card {
+      width: 350px;
+      height: 525px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      padding-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+      margin-bottom: 5%;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 66%;
+      object-fit: cover;
+      filter: grayscale(100%); /* Initial filter */
+      transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 1.5%;
+      left: 2.8%;
+      width: 94.5%;
+      height: 56.5%;
+      background-color: #6868EC;
+      opacity: 0.5; /* Low opacity for the overlay */
+      z-index: 2; /* Overlay above the image */
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .card:hover::before {
+      opacity: 0; /* Remove the overlay on hover */
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+
+    .card:hover .card-image {
+      filter: grayscale(0);
+    }
+
+    .card-content {
+      text-align: left;
+      padding-left: 5px;
+      z-index: 3;
+      position: relative;
+    }
+
+  /* Input field styles */
+.input-field {
+    width: 100%; /* Full width */
+    height: 66px; /* Set height */
+    background-color: #d2d2f7; /* Background color */
+    border: none; /* No border */
+    padding: 15px; /* Padding inside input */
+    margin-bottom: 20px; /* Space between fields */
+    margin-top: 0;
+    margin-right: 10%;
+    font-size: 16px; /* Font size */
+    font-family: 'Comfortaa', sans-serif; /* Font family */
+    color: #4A4A5D; /* Font color */
+    border-radius: 10px; /* Rounded corners */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.textarea-field {
+    width: 100%; /* Full width */
+    height: 224px; /* Height for message textarea */
+    background-color: #d2d2f7; /* Background color */
+    border: none; /* No border */
+    padding: 15px; /* Padding inside textarea */
+    margin-bottom: 20px; /* Space between fields */
+    margin-top: 0;
+    margin-right: 10%;
+    font-size: 16px; /* Font size */
+    font-family: 'Comfortaa', sans-serif; /* Font family */
+    color: #4A4A5D; /* Font color */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+/* Submit button */
+.submit-button {
+    background-color: #6868EC; /* Background color */
+    color: white; /* Text color */
+    padding: 15px 20px; /* Padding */
+    border: none; /* No border */
+    font-size: 16px; /* Font size */
+    font-family: 'Comfortaa', sans-serif; /* Font family */
+    cursor: pointer; /* Pointer cursor */
+    width: 30%; /* Full width */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+/* Submit button hover effect */
+.submit-button:hover {
+    background-color: #4A4A5D; /* Darker color on hover */
+}
+
+
+</style>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" style="color: #6868EC;">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#contact-form">Contact</a></li> 
+        </ul>
+    </nav>
+    
+    
+    <div id="boxes">
+     <div id="leftbox">
+      <p style="color: #4D4A4A">Hello, I'm <br>
+        Meghana <br>
+        Arun </p>
+        <input type="button" value="See my work →">
+     </div>
+
+     <div id="rightbox">
+      <p style="color: #4D4A4A">A third-year design student <br>
+        specializing in interaction design</p>
+     </div>
+    </div>
+    <br>
+    <br>
+    <br>
+  
+     <!-- Add horizontal line here -->
+     <hr class="section-divider">
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+    <!-- Image Grid -->
+  <div class="grid-container">
+    <div class="grid-item">
+      <img src="https://raw.githubusercontent.com/Meghana-adc/Assignment-/refs/heads/main/f1.jpg" alt="Dog 1">
+    </div>
+    <div class="grid-item">
+      <img src="https://raw.githubusercontent.com/Meghana-adc/test/refs/heads/main/nav.jpg" alt="Dog 2">
+    </div>
+    <div class="grid-item">
+      <img src="https://raw.githubusercontent.com/Meghana-adc/test/refs/heads/main/ff3.jpg" alt="Dog 3">
+    </div>
+  </div>
+
+  <!-- Text Grid -->
+    <div class="text-grid-container">
+        <div class="text-grid-item">
+            <p style= "font-size: 28px;">Branding</p>
+            <p style= "font-size: 16px;">Creating a unique identity for a product, service, or company to  make it more recognizable and memorable to consumers.</p>
+        </div>
+        <div class="text-grid-item">
+            <p style= "font-size: 28px;">Interaction Design</p>
+            <p style= "font-size: 16px;">Designing interfaces and interactions that effectively guide users through complex tasks and promote a positive user experience.</p>
+        </div>
+        <div class="text-grid-item">
+            <p style= "font-size: 28px;">Graphic Design</p>
+            <p style= "font-size: 16px;">Creating visual communications, using typography, imagery, and layout to inform, educate, or persuade consumers.</p>
+        </div>
+    </div>
+    <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <!-- Add horizontal line here -->
+  <hr class="section-divider">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+
+  <!-- Left and Right Text with Button -->
+  <div class="heading-container">
+    <p>See my latest work</p>
+    <input type="button" value="See All Projects →"style="background-color: white; color: #6868EC; padding: 10px 20px; border: 1px solid #6868EC; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 24px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#cfcff0'" onmouseout="this.style.backgroundColor='white'">
+</div>
+  <!-- Cards container -->
+  <div class="cards-container">
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/Meghana-adc/Assignment-/refs/heads/main/f4.jpg" alt="Card Image" class="card-image">
+      <div class="card-content">
+        <p style="font-size: 28px; font-family: Montserrat, sans-serif; color: #62627D; margin-bottom: 0;">Flow Free</p>
+        <p style="font-size: 18px; font-family: Montserrat, sans-serif; color: #6868EC; margin-top: 0;">Game Design | Branding</p>
+        <p style="font-size: 16px; font-family: Comfortaa; color: #4A4A5D">Redesigning a game app to increase retention by adding new features such <br> as daily challenge puzzles.</p>
+        <input type="button" value="See full project →" style="background-color: white; color: #6868EC; padding: 10px 10px; border: .75px solid #6868EC; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#cfcff0'" onmouseout="this.style.backgroundColor='white'">
+      </div>
+    </div>
+  
+  <div class="card">
+      <img src="https://raw.githubusercontent.com/Meghana-adc/Assignment-/refs/heads/main/f5.jpg" alt="Card Image" class="card-image">
+      <div class="card-content">
+        <p style="font-size: 28px; font-family: Montserrat, sans-serif; color: #62627D; margin-bottom: 0;">Smiling Mind</p>
+        <p style="font-size: 18px; font-family: Montserrat, sans-serif; color: #6868EC; margin-top: 0;">Interaction Design</p>
+        <p style="font-size: 16px; font-family: Comfortaa; color: #4A4A5D">Redesigning a meditation platform <br> to 
+        improve navigation and program selection on the app.</p>
+        <input type="button" value="See full project →" style="background-color: white; color: #6868EC; padding: 10px 10px; border: .75px solid #6868EC; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#cfcff0'" onmouseout="this.style.backgroundColor='white'">
+      </div>
+    </div>
+  
+  <div class="card">
+      <img src="https://raw.githubusercontent.com/Meghana-adc/Assignment-/refs/heads/main/f6.jpg" alt="Card Image" class="card-image">
+      <div class="card-content">
+        <p style="font-size: 28px; font-family: Montserrat, sans-serif; color: #62627D; margin-bottom: 0;">Dreamscapes</p>
+        <p style="font-size: 18px; font-family: Montserrat, sans-serif; color: #6868EC; margin-top: 0;">Graphic Design</p>
+        <p style="font-size: 16px; font-family: Comfortaa; color: #4A4A5D">Designing a poster to depict <br> the boundless depths of the <br> subconscious mind.
+        </p>
+        <input type="button" value="See full project →" style="background-color: white; color: #6868EC; padding: 10px 10px; border: .75px solid #6868EC; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#cfcff0'" onmouseout="this.style.backgroundColor='white'">
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+
+<!-- Add horizontal line here -->
+<hr class="section-divider">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="boxes" >
+  <div id="leftbox">
+   <p style="color: #1E1B1B; font-size: 40px; font-family: Comfortaa;">Let's work together </p>
+   <p style="color: #4D4A4A; font-size: 22px; font-family: Comfortaa;">Thank you for showing interest in working together, I would love to hear about your project. Please provide information about your project's scope, timeline, and budget.</p>
+  </div>
+
+  <div id="rightbox" style="margin-top: 10px; margin-bottom: 10%;" class id="contact-form">
+    <!-- Input Fields and Submit Button -->
+    <form>
+       <!-- Name Field -->
+       <input type="text" name="name" placeholder="Name" class="input-field" required>
+ 
+       <!-- Email Field -->
+       <input type="email" name="email" placeholder="Email" class="input-field" required>
+ 
+       <!-- Message Field -->
+       <textarea name="message" placeholder="Type your message here" class="textarea-field" required></textarea>
+ 
+       <!-- Submit Button -->
+       <input type="submit" value="Submit" class="submit-button">
+    </form>
+   <br>
+<br>
+<br>
+<p style="color: white;"> .</p>
+</div>
+   
+
+</body>
+</html>
